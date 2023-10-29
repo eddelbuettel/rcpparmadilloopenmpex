@@ -65,7 +65,7 @@ the function used here can do too as a local-addition to a package using
 // [[Rcpp::export]]
 void set_number_of_omp_threads(int n) {
 #ifdef _OPENMP
-    return omp_set_num_threads(n);
+    omp_set_num_threads(n);
 #endif
 }
 ```

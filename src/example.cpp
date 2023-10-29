@@ -50,6 +50,6 @@ int get_number_of_omp_threads() {
 // [[Rcpp::export]]
 void set_number_of_omp_threads(int n) {
 #ifdef _OPENMP
-    return omp_set_num_threads(n);
+    omp_set_num_threads(n);
 #endif
 }
