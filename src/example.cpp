@@ -14,7 +14,7 @@ using namespace arma;
 //' @examples
 //' if (Sys.getenv("SHOWME", "") == "yes")
 //'    set_number_of_omp_threads(1)
-//' example()
+//' openmp_example()
 //'
 // [[Rcpp::export]]
 void openmp_example() {

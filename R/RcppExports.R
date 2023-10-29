@@ -12,7 +12,7 @@
 #' @examples
 #' if (Sys.getenv("SHOWME", "") == "yes")
 #'    set_number_of_omp_threads(1)
-#' example()
+#' openmp_example()
 #'
 openmp_example <- function() {
     invisible(.Call(`_RcppArmadilloOpenMPEx_openmp_example`))

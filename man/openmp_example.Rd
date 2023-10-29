@@ -16,6 +16,6 @@ we throttle and no warning appears.
 \examples{
 if (Sys.getenv("SHOWME", "") == "yes")
    set_number_of_omp_threads(1)
-example()
+openmp_example()
 
 }
