@@ -11,18 +11,40 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
-// example
-void example();
-RcppExport SEXP _RcppArmadilloOpenMPEx_example() {
+// openmp_example
+void openmp_example();
+RcppExport SEXP _RcppArmadilloOpenMPEx_openmp_example() {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
-    example();
+    openmp_example();
+    return R_NilValue;
+END_RCPP
+}
+// get_number_of_omp_threads
+int get_number_of_omp_threads();
+RcppExport SEXP _RcppArmadilloOpenMPEx_get_number_of_omp_threads() {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    rcpp_result_gen = Rcpp::wrap(get_number_of_omp_threads());
+    return rcpp_result_gen;
+END_RCPP
+}
+// set_number_of_omp_threads
+void set_number_of_omp_threads(int n);
+RcppExport SEXP _RcppArmadilloOpenMPEx_set_number_of_omp_threads(SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    set_number_of_omp_threads(n);
     return R_NilValue;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_RcppArmadilloOpenMPEx_example", (DL_FUNC) &_RcppArmadilloOpenMPEx_example, 0},
+    {"_RcppArmadilloOpenMPEx_openmp_example", (DL_FUNC) &_RcppArmadilloOpenMPEx_openmp_example, 0},
+    {"_RcppArmadilloOpenMPEx_get_number_of_omp_threads", (DL_FUNC) &_RcppArmadilloOpenMPEx_get_number_of_omp_threads, 0},
+    {"_RcppArmadilloOpenMPEx_set_number_of_omp_threads", (DL_FUNC) &_RcppArmadilloOpenMPEx_set_number_of_omp_threads, 1},
     {NULL, NULL, 0}
 };
 
