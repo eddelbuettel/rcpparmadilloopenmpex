@@ -51,5 +51,7 @@ int get_number_of_omp_threads() {
 void set_number_of_omp_threads(int n) {
 #ifdef _OPENMP
     omp_set_num_threads(n);
+#else
+    (void)(n);  					// prevent unused variable warning
 #endif
 }
