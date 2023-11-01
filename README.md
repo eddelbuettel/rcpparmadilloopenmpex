@@ -53,10 +53,11 @@ results in a run without a warning as desired:
 * checking for unstated dependencies in ‘tests’ ... OK
 ```
 
-We plan to make a more convenient setter available in
-[RcppArmadillo](https://github.com/RcppCore/RcppArmadillo) itself but for now
-the function used here can do too as a local-addition to a package using
-[RcppArmadillo](https://github.com/RcppCore/RcppArmadillo).
+Starting with release 0.12.6.6.0,  more convenient setters are available in
+[RcppArmadillo](https://github.com/RcppCore/RcppArmadillo) itself.
+An example is provided by [its `fastLm`
+example](https://github.com/RcppCore/RcppArmadillo/blob/779d353e48e9cae3f0b8aa02b9e3080d75e4a605/man/fastLm.Rd#L72-L98).
+The underlying function (which could be copied) is a calling `omp_set_num_threads()`:
 
 ```c++
 //' Set Maximum Number of Threads
@@ -66,9 +67,16 @@ the function used here can do too as a local-addition to a package using
 void set_number_of_omp_threads(int n) {
 #ifdef _OPENMP
     omp_set_num_threads(n);
+#else
+    (void)(n);                  // prevent unused variable warning
 #endif
 }
 ```
+
+In [RcppArmadillo](https://github.com/RcppCore/RcppArmadillo), we combine
+this with a package-local 'cacheing' of count of threads set at package load
+to provide a pair of functions to _set_ and then _reset_ the count -- see the
+[fastLm example](https://github.com/RcppCore/RcppArmadillo/blob/779d353e48e9cae3f0b8aa02b9e3080d75e4a605/man/fastLm.Rd#L72-L98).
 
 ### Author
 
