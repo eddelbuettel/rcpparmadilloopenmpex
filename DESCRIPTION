@@ -1,7 +1,7 @@
 Package: RcppArmadilloOpenMPEx
 Type: Package
 Title: Simple Example of OpenMP Use in RcppArmadillo
-Version: 0.0.1
+Version: 0.0.1.1
 Date: 2023-10-28
 Author: Dirk Eddelbuettel
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
@@ -10,5 +10,5 @@ License: GPL (>= 2)
 Suggests: tinytest
 Encoding: UTF-8
 RoxygenNote: 6.0.1
-Imports: Rcpp (>= 1.0.11)
-LinkingTo: Rcpp, RcppArmadillo
+Imports: Rcpp (>= 1.0.11), spdl
+LinkingTo: Rcpp, RcppArmadillo, RcppSpdlog
